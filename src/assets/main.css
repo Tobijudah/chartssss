@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #fcf7f8;
+  color: #ff536e;
+  font-size: 16px;
+  font-family: 'Work Sans', sans-serif;
+  letter-spacing: -0.5px;
+  text-rendering: geometricPrecision;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.purple {
+  color: #341539;
+}
