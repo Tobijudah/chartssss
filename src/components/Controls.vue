@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import fetchChart from '@/api/fetchChart';
 import type { Chart, FormState } from '@/types';
 
 const charts: Chart[] = ['songs', 'artists'];
@@ -12,7 +11,10 @@ const state = ref<FormState>({
 });
 
 const search = async () => {
-  const data = await fetchChart(state.value);
+  const data = await fetch('/api/musixmatch', {
+    method: 'POST',
+    body: JSON.stringify(state.value),
+  });
   console.log(data);
 };
 
