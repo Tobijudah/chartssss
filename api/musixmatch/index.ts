@@ -18,7 +18,5 @@ export default async function handler({ body }: VercelRequest, response: VercelR
 
   const data = await (await fetch(url)).json();
 
-  response
-    .status(200)
-    .json({ body: data, params: JSON.parse(body), key: 'key: ' + process.env.VITE_API_KEY });
+  response.status(200).json({ body: data, params: JSON.parse(body) });
 }
