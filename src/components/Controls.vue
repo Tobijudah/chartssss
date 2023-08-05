@@ -105,7 +105,7 @@ const countries = [
   width: 100%;
   padding: 10px;
   border-radius: 9999px;
-  border: 1px solid #c9c9c9;
+  border: 1px solid #341539a0;
 }
 
 .input::placeholder {
