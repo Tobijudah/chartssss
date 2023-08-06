@@ -4,7 +4,7 @@ import type { Chart, FormState } from '@/types';
 
 const charts: Chart[] = ['tracks', 'artists'];
 
-const state = ref<FormState>({
+const form = ref<FormState>({
   country: '',
   number: null,
   chart: charts[0],
@@ -38,7 +38,7 @@ const countries = [
           id="number"
           class="input"
           type="number"
-          v-model="state.number"
+          v-model="form.number"
           placeholder="10 (Default)"
         />
       </label>
@@ -52,7 +52,7 @@ const countries = [
               type="radio"
               :value="chart"
               class="radioInput"
-              v-model="state.chart"
+              v-model="form.chart"
             />
             <label :for="chart" class="radio purple">{{ chart }}</label>
           </template>
@@ -61,7 +61,7 @@ const countries = [
 
       <label for="country" class="label purple">
         Country:
-        <select required name="country" id="country" class="select" v-model="state.country">
+        <select required name="country" id="country" class="select" v-model="form.country">
           <option selected disabled value="">Pick a country</option>
           <option v-for="country of countries" :key="country.value" :value="country.value">
             {{ country.label }}
@@ -70,10 +70,7 @@ const countries = [
       </label>
 
       <p class="info">
-        Top <span class="purple">{{ state.number || 10 }} {{ state.chart }}</span> in
-        <span class="purple">{{
-          countries.find(country => country.value === state.country)?.label || '...'
-        }}</span>
+        Top <span class="purple">{{ form.number ?? 10 }} {{ form.chart }}</span> in
       </p>
 
       <button type="submit" class="button">Search</button>
