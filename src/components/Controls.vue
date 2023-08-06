@@ -4,6 +4,7 @@ import fetchChart from '@/api/fetchChart';
 import { computed, ref, watch } from 'vue';
 import { useQuery } from '@tanstack/vue-query';
 import type { Chart, FormState } from '@/types/app';
+import CircleAnimation from '@/components/CircleAnimation.vue';
 
 const charts: Chart[] = ['tracks', 'artists'];
 
@@ -13,7 +14,7 @@ const form = ref<FormState>({
   chart: charts[0],
 });
 
-const { isError, data, error } = useQuery([computed(() => store.state)], fetchChart, {
+const { isLoading, isError, data, error } = useQuery([computed(() => store.state)], fetchChart, {
   staleTime: Infinity,
   cacheTime: Infinity,
 });
@@ -93,7 +94,12 @@ const currentCountry = computed(
         <span class="purple">{{ currentCountry || '...' }}</span>
       </p>
 
-      <button type="submit" class="button">Search</button>
+      <button type="submit" class="button">
+        <template v-if="isLoading">
+          <CircleAnimation />
+        </template>
+        <template v-else> Search</template>
+      </button>
     </form>
   </div>
 </template>
