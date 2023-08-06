@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import type { Chart, FormState } from '@/types';
+import type { Chart, FormState } from '@/types/app';
 
 const charts: Chart[] = ['tracks', 'artists'];
 
