@@ -161,7 +161,7 @@ const currentCountry = computed(
 .radioInput:checked + .radio {
   color: #ff536e;
   font-weight: 600;
-  border: 2px solid #341539;
+  border: 1.5px solid #341539;
 }
 
 .radio {
