@@ -140,6 +140,7 @@ const currentCountry = computed(
   font-size: 14px;
   line-height: 16px;
   text-align: center;
+  text-transform: capitalize;
   padding: 10px;
   border: 1px solid #341539a0;
   border-radius: 32px;
@@ -164,6 +165,7 @@ const currentCountry = computed(
   background: #ff536e;
   color: #fff;
   font-weight: 600;
+  line-height: 16px;
   padding: 10px;
   border: 1px solid #341539;
   border-radius: 32px;
