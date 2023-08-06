@@ -7,6 +7,7 @@ export const store = reactive<Store>({
   state: {
     country: '',
     number: null,
+    loading: false,
     chart: 'tracks',
   },
   setState(newState) {

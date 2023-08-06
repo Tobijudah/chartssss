@@ -8,11 +8,13 @@ export type FormState = {
   number: null | number;
 };
 
+export type StoreState = FormState & { loading: boolean };
+
 export type Store = {
-  state: FormState;
+  state: StoreState;
   tracks: { track: Track }[];
   artists: { artist: Artist }[];
-  setState: (newState: FormState) => void;
+  setState: (newState: StoreState) => void;
   setTracks: (newTracks: { track: Track }[]) => void;
   setArtists: (newArtists: { artist: Artist }[]) => void;
 };
