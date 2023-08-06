@@ -3,19 +3,26 @@
 <template>
   <header class="header">
     <h1 class="title">Chartssss<span class="purple">.</span></h1>
-    <h2 class="purple">Discover music charts from all over the world</h2>
+    <h2 class="subTitle purple">Discover music charts from all over the world</h2>
   </header>
 </template>
 
 <style scoped>
 .header {
-  margin: 5rem 0;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 24px 0;
+  text-align: left;
 }
 
 .title {
-  font-size: 5rem;
+  font-size: 48px;
   letter-spacing: 0;
-  margin-top: 3rem;
+}
+
+.subTitle {
+  font-size: 16px;
+  letter-spacing: 0;
 }
 </style>
