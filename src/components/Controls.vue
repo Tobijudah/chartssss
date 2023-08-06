@@ -25,6 +25,10 @@ const countries = [
   { label: 'South Africa', value: 'za' },
   { label: 'Ghana', value: 'gh' },
 ];
+
+const currentCountry = computed(
+  () => countries.find(country => country.value === form.value.country)?.label,
+);
 </script>
 
 <template>
@@ -71,6 +75,7 @@ const countries = [
 
       <p class="info">
         Top <span class="purple">{{ form.number ?? 10 }} {{ form.chart }}</span> in
+        <span class="purple">{{ currentCountry || '...' }}</span>
       </p>
 
       <button type="submit" class="button">Search</button>
