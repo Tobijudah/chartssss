@@ -25,6 +25,7 @@ h3 {
 
 input,
 select {
+  background-color: #fff;
   font-size: 14px;
   line-height: 16px;
   font-family: 'Work Sans', sans-serif;
