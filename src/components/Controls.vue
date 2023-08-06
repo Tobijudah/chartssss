@@ -4,6 +4,7 @@ import fetchChart from '@/api/fetchChart';
 import { computed, ref, watch } from 'vue';
 import { useQuery } from '@tanstack/vue-query';
 import type { Chart, FormState } from '@/types/app';
+import Chevron from '@/components/icons/Chevron.vue';
 import CircleAnimation from '@/components/CircleAnimation.vue';
 
 const charts: Chart[] = ['tracks', 'artists'];
@@ -84,12 +85,15 @@ const currentCountry = computed(
 
       <label for="country" class="label purple">
         Country:
-        <select required name="country" id="country" class="select" v-model="form.country">
-          <option selected disabled value="">Pick a country</option>
-          <option v-for="country of countries" :key="country.value" :value="country.value">
-            {{ country.label }}
-          </option>
-        </select>
+        <div class="selectContainer">
+          <Chevron class="chevron" />
+          <select required name="country" id="country" class="select" v-model="form.country">
+            <option selected disabled value="">Pick a country</option>
+            <option v-for="country of countries" :key="country.value" :value="country.value">
+              {{ country.label }}
+            </option>
+          </select>
+        </div>
       </label>
 
       <p class="info">
@@ -182,7 +186,26 @@ const currentCountry = computed(
     border 0.2s ease-in-out;
 }
 
+.selectContainer {
+  position: relative;
+}
+
+.chevron {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+  min-width: 16px;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease-in-out;
+}
+
 .select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
   padding: 10px;
   border: 1px solid #341539a0;
   border-radius: 32px;
