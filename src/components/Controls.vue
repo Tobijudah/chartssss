@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { store } from '@/store';
+import fetchChart from '@/api/fetchChart';
+import { computed, ref, watch } from 'vue';
+import { useQuery } from '@tanstack/vue-query';
 import type { Chart, FormState } from '@/types/app';
 
 const charts: Chart[] = ['tracks', 'artists'];
@@ -9,13 +13,25 @@ const form = ref<FormState>({
   chart: charts[0],
 });
 
+const { isError, data, error } = useQuery([computed(() => store.state)], fetchChart, {
+  staleTime: Infinity,
+  cacheTime: Infinity,
+});
+
 const search = async () => {
-  const data = await fetch('/api/musixmatch', {
-    method: 'POST',
-    body: JSON.stringify(state.value),
-  });
-  console.log(data);
+  store.setState({ ...form.value });
 };
+
+watch(data, () => {
+  const res = data.value;
+  if (res) {
+    if ('track_list' in res.body.message.body) {
+      store.setTracks(res.body.message.body.track_list);
+    } else {
+      store.setArtists(res.body.message.body.artist_list);
+    }
+  }
+});
 
 const countries = [
   { label: 'Nigeria', value: 'ng' },
