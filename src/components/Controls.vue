@@ -106,6 +106,7 @@ const currentCountry = computed(
 
 <style scoped>
 .container {
+  height: 100%;
   width: max(22%, 300px);
   background-color: #fff;
   padding: 30px;
@@ -180,6 +181,7 @@ const currentCountry = computed(
 
 .info {
   margin-top: 16px;
+  line-height: 24px;
 }
 
 .button {
