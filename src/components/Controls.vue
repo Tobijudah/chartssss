@@ -5,6 +5,7 @@ import { computed, ref, watch } from 'vue';
 import { useQuery } from '@tanstack/vue-query';
 import type { Chart, FormState } from '@/types/app';
 import Chevron from '@/components/icons/Chevron.vue';
+import { countries, otherCountries } from '@/utils/countries';
 import CircleAnimation from '@/components/CircleAnimation.vue';
 
 const charts: Chart[] = ['tracks', 'artists'];
@@ -38,16 +39,10 @@ watch(data, () => {
   }
 });
 
-const countries = [
-  { label: 'Nigeria', value: 'ng' },
-  { label: 'United States', value: 'us' },
-  { label: 'United Kingdom', value: 'gb' },
-  { label: 'South Africa', value: 'za' },
-  { label: 'Ghana', value: 'gh' },
-];
-
 const currentCountry = computed(
-  () => countries.find(country => country.value === form.value.country)?.label,
+  () =>
+    countries.find(country => country.value === form.value.country)?.label ||
+    otherCountries.find(country => country.value === form.value.country)?.label,
 );
 </script>
 
@@ -90,6 +85,10 @@ const currentCountry = computed(
           <select required name="country" id="country" class="select" v-model="form.country">
             <option selected disabled value="">Pick a country</option>
             <option v-for="country of countries" :key="country.value" :value="country.value">
+              {{ country.label }}
+            </option>
+            <option disabled value="">Other countries</option>
+            <option v-for="country of otherCountries" :key="country.value" :value="country.value">
               {{ country.label }}
             </option>
           </select>
