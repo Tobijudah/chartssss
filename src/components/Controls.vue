@@ -20,7 +20,8 @@ const { isLoading, isError, data, error } = useQuery([computed(() => store.state
 });
 
 const search = async () => {
-  store.setState({ ...form.value });
+  store.setTracks([]);
+  store.setArtists([]);
 };
 
 watch(data, () => {
