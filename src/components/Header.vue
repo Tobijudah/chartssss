@@ -15,7 +15,6 @@
 
 .title {
   font-size: 5rem;
-  font-family: 'Arapey', serif;
   letter-spacing: 0;
   margin-top: 3rem;
 }
