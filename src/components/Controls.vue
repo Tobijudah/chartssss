@@ -90,7 +90,7 @@ const currentCountry = computed(
       </label>
 
       <p class="info">
-        Top <span class="purple">{{ form.number ?? 10 }} {{ form.chart }}</span> in
+        Search for the: <br> Top <span class="purple">{{ form.number ?? 10 }} {{ form.chart }}</span> in
         <span class="purple">{{ currentCountry || '...' }}</span>
       </p>
 
