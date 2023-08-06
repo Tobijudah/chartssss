@@ -93,7 +93,8 @@ const currentCountry = computed(
       </label>
 
       <p class="info">
-        Search for the: <br> Top <span class="purple">{{ form.number || 10 }} {{ form.chart }}</span> in
+        Search for the: <br />
+        Top <span class="purple">{{ form.number || 10 }} {{ form.chart }}</span> in
         <span class="purple">{{ currentCountry || '...' }}</span>
       </p>
 
@@ -114,6 +115,11 @@ const currentCountry = computed(
   background-color: #fff;
   padding: 30px;
   border-radius: 16px;
+
+  @media (max-width: 1023px) {
+    width: 100%;
+    padding: 24px 16px;
+  }
 }
 
 .form {

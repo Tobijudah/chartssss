@@ -40,6 +40,12 @@ import Artist from './Artist.vue';
   background-color: #fff;
   padding: 30px;
   border-radius: 16px;
+
+  @media (max-width: 1023px) {
+    width: 100%;
+    margin-top: 16px;
+    padding: 24px 16px;
+  }
 }
 
 .title {
@@ -54,5 +60,9 @@ import Artist from './Artist.vue';
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   margin-top: 32px;
+
+  @media (max-width: 1023px) {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

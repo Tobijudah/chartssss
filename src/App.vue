@@ -24,5 +24,9 @@ import Controls from '@/components/Controls.vue';
 .content {
   display: flex;
   gap: 32px;
+
+  @media (max-width: 1023px) {
+    flex-direction: column;
+  }
 }
 </style>
