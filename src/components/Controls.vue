@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import type { Chart, FormState } from '@/types';
 
-const charts: Chart[] = ['songs', 'artists'];
+const charts: Chart[] = ['tracks', 'artists'];
 
 const state = ref<FormState>({
   country: '',
