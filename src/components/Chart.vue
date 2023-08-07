@@ -2,6 +2,14 @@
 import { store } from '@/store';
 import Track from './Track.vue';
 import Artist from './Artist.vue';
+import { useQuery } from '@tanstack/vue-query';
+import { computed } from 'vue';
+import fetchChart from '@/api/fetchChart';
+
+const { isLoading } = useQuery([computed(() => store.state)], fetchChart, {
+  staleTime: Infinity,
+  cacheTime: Infinity,
+});
 </script>
 
 <template>
@@ -9,7 +17,7 @@ import Artist from './Artist.vue';
     <h3 class="title purple">
       <template v-if="store.state.country">
         Top {{ store.state.chart }} ({{ store.state.country.toUpperCase() }})
-        <template v-if="store.state.loading">— loading...</template>
+        <template v-if="isLoading">— loading...</template>
       </template>
       <template v-else>Awaiting Search...</template>
     </h3>
