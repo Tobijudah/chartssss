@@ -24,13 +24,13 @@ const { isLoading, isError, data, error } = useQuery([computed(() => store.state
 const search = async () => {
   store.setTracks([]);
   store.setArtists([]);
-  store.setState({ ...form.value, loading: true });
+  store.setState({ ...form.value });
 };
 
 watch(data, () => {
   const res = data.value;
   if (res) {
-    store.setState({ ...store.state, loading: false });
+    store.setState({ ...store.state });
     if ('track_list' in res.body.message.body) {
       store.setTracks(res.body.message.body.track_list);
     } else {

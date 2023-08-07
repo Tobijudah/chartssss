@@ -8,7 +8,7 @@ export type FormState = {
   number: null | number;
 };
 
-export type StoreState = FormState & { loading: boolean };
+export type StoreState = FormState;
 
 export type Store = {
   state: StoreState;
